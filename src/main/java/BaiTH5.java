@@ -24,7 +24,7 @@ public class BaiTH5 {
         System.out.println();
     }
 
-    static boolean isPrimeNum(int n) {
+    public static boolean isPrimeNum(int n) {
         boolean ret = true;
         for (int i = 2; i < n; i++) {
             if (n % i == 0) {
@@ -35,7 +35,7 @@ public class BaiTH5 {
         return ret;
     }
 
-    static boolean checkPrimeArr(int[] arr) {
+    public static boolean checkPrimeArr(int[] arr) {
         boolean check = true;
         for (int i = 0; i < arr.length; i++) {
             if (!isPrimeNum(arr[i])) {
@@ -47,7 +47,7 @@ public class BaiTH5 {
 
     }
 
-    static boolean checkAscArr(int[] arr) {
+    public static boolean checkAscArr(int[] arr) {
         boolean check = true;
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] >= arr[i + 1]) {
@@ -58,7 +58,7 @@ public class BaiTH5 {
         return check;
     }
 
-    static int count3a(int[] arr) {
+    public static int count3a(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
             if ((arr[i] % 4 == 0) && (arr[i] % 5 != 0)) {
@@ -68,7 +68,7 @@ public class BaiTH5 {
         return count;
     }
 
-    static int sumPrimeArr(int[] arr) {
+    public static int sumPrimeArr(int[] arr) {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             if (isPrimeNum(arr[i])) {
@@ -76,6 +76,85 @@ public class BaiTH5 {
             }
         }
         return sum;
+
+    }
+
+    public static int findMax(int[] arr){
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (max < arr[i]){
+                max=arr[i];
+            }
+
+        }
+        return max;
+    }
+    public static int findMaxIndex(int[] arr){
+        int maxIndex =0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > arr[maxIndex]){
+                maxIndex =i;
+            }
+
+        }
+        return maxIndex;
+    }
+
+    public static int findFirstNegativeIndex(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]<0){
+                return i;
+            }
+        }
+        return -1; // mảng không có phần tử nào bé hơn 0 => Không có phần tử Negative
+    }
+
+    public static int findLastPositiveIndex(int[] arr){
+        for (int i = arr.length-1; i >=0; i--) {
+            if (arr[i]>0){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int findMin(int[] arr){
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (min > arr[i]){
+                min=arr[i];
+            }
+
+        }
+        return min;
+    }
+
+    public static int findMinPositiveIndex(int[] arr){
+        int lastPosInx = findLastPositiveIndex(arr);
+        if (lastPosInx<0) {
+            return -1;
+        }
+    int minPosInx = lastPosInx;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]>0 && arr[i]<arr[minPosInx]){
+                minPosInx =i;
+            }
+
+        }
+
+        return minPosInx;
+
+    }
+
+    public static int findMaxNegativeIndex(int[] arr){
+        int maxNegInx = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]<0 && (maxNegInx==-1 || arr[i]>arr[maxNegInx])){
+                maxNegInx =i;
+            }
+
+        }
+        return maxNegInx;
 
     }
 
